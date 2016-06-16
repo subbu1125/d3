@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>circles</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var h= 500;
+      var w=500;
+      var barpadding=1;
+      var dataset=[4,6,9,15,20,25];
+      var svg=d3.selectAll("body")
+                .append("svg")
+                .attr("height",h)
+                .attr("width",w);
+      svg.selectAll("circle")
+          .data(dataset)
+          .enter()
+          .append("circle")
+          .attr("cx",function(d,i){
+            return (i*50)+25;
+          })
+          .attr("cy",h/2)
+          .attr("r",function(d){
+            return d;
+          })
+          .attr("fill",function(d){
+            return "rgb("+(d*10)+",255,255)";
+          })
+          .attr("stroke","green")
+          .attr("stroke-width",function(d){
+            return d/4+"px";
+          });
+
+          // svg.selectAll("rect")
+          //     .data(dataset)
+          //     .enter()
+          //     .append("rect")
+          //     .attr("x", function (d,i) {
+          //       return i*(w/dataset.length);
+          //     })
+          //     .attr("y",function(d){
+          //       return h-(d*10);
+          //     })
+          //     .attr("width", w/dataset.length-barpadding)
+          //     .attr("height", function (d) {
+          //       return d*10;
+          //     })
+          //     .attr("fill",function(d){
+          //       return "rgb(0,"+(d*10)+","+(d*5)+")"
+          //     })
+          //     .text(function(d){
+          //       return d;
+          //     });
+              // .attr("font-family","sans-serif")
+              // .attr("font-size","11px")
+              // .attr("fill","red");
+              // svg.selectAll("text")
+              //     .data(dataset)
+              //     .enter()
+              //     .append("text")
+              //     .attr("x",function(d,i) {
+              //       return i*(w/dataset.length)+25;
+              //     })
+              //     .attr("y",function(d){
+              //       return h-(d*10)+15;
+              //     })
+              //     .text(function(d){
+              //       return d;
+              //     })
+              //     .attr("text-anchor", "middle");
+
+    </script>
+  </body>
+</html>

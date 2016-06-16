@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var grid = [
+    [5,6], [2,1]
+  ];
+
+  var newGrid = [];
+  var rowLength = grid.length;
+  newGrid.length = grid.length;
+
+  for(var i=0;i<grid.length;i++){
+    for(var j=0;j<grid.length;j++){
+      var x = i % rowLength;
+      var y = Math.floor(i / rowLength);
+      var newX = rowLength - y - 1;
+      var newY = x;
+      var newPosition = newY * rowLength + newX;
+      newGrid[newPosition] = grid[i];
+    }
+  }
+  for (var i = 0; i < newGrid.length; i++)
+  {
+      document.write(newGrid[i]);
+    }
+
+    </script>
+  </body>
+
+</html>
